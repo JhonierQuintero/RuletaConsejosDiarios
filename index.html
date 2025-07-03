@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ruleta de Consejos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+  <body>
+    <audio id="spin-sound" src="./assets/spin.mp3"></audio>
+    <audio id="success-sound" src="./assets/campana-tin.mp3"></audio>
+    <audio id="ambient-sound" src="./assets/sonido-ambiental.mp3" loop></audio>
+    
+    <div class="stars"></div>
+    
+    <div class="welcome-screen" id="welcome-screen">
+      <div class="welcome-decor">
+        <img src="./assets/galaxia-1.png" class="galaxy galaxy-1" alt="Galaxia">
+        <img src="./assets/galaxia-2.png" class="galaxy galaxy-2" alt="Galaxia">
+        <img src="./assets/planeta-1.png" class="planet planet-1" alt="Planeta">
+      </div>
+      <h1>✨ Ruleta de Consejos ✨</h1>
+      <p>Descubre la pregunta que transformará todo el día de hoy</p>
+      <button class="btn" id="welcome-btn">Comenzar</button>
+      <img src="./assets/astronauta.png" class="astronauta-chibi" alt="Astronauta Chibi">
+    </div>
+    
+    <!-- Ruleta principal -->
+    <div class="container">
+      <h1>Ruleta de Consejos</h1>
+      <div class="wheel-container">
+        <div class="wheel" id="wheel"></div>
+        <div class="wheel-center"></div>
+        <div class="wheel-pointer"></div>
+      </div>
+      <button class="btn" id="spin-button">Girar por tu consejo del día</button>
+      <p id="message"></p>
+      <div class="particles" id="particles"></div>
+    </div>
+    
+    <!-- Modal de resultado -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal"><i class="fas fa-times"></i></span>
+        <h2>Tu consejo del día</h2>
+        <p id="advice-text"></p>
+        <button class="btn" id="modal-btn">Volver a empezar</button>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <p>© 2025 Ruleta de Consejos | Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

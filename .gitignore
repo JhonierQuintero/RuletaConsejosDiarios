@@ -1,0 +1,21 @@
+# Ignora archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Node modules (si usas npm)
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Archivos de log
+*.log
+
+# Archivos temporales de VSCode
+.vscode/
+
+# Archivos de caché de JS
+*.cache
+
+# Archivos de sistema de Windows
+desktop.ini

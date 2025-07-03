@@ -1,0 +1,378 @@
+:root {
+  --primary-color: #7e22ce;
+  --secondary-color: #3b0764;
+  --accent-color: #f0c420;
+  --light-color: #f5f3ff;
+  --dark-color: #1e0a3c;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: var(--light-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Decoraciones espaciales en la pantalla de bienvenida */
+.welcome-decor .galaxy,
+.welcome-decor .planet {
+  position: absolute;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.galaxy-1 { top: 10%; left: 5%; width: 120px; animation: float 8s infinite alternate; }
+.galaxy-2 { top: 20%; right: 10%; width: 100px; animation: float 10s infinite alternate-reverse; }
+.planet-1 { bottom: 20%; left: 15%; width: 80px; animation: float 12s infinite alternate; }
+
+.astronauta-chibi {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  z-index: 2;
+  animation: float 6s infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-20px) scale(1.05); }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 10, 40, 0.90);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: opacity 1s ease-out;
+  overflow: hidden;
+}
+
+.welcome-screen h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(240, 196, 32, 0.5);
+  z-index: 2;
+}
+
+.welcome-screen p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.wheel-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 2rem auto;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 3s ease-out;
+  box-shadow: 
+    0 0 0 6px var(--secondary-color),
+    0 0 20px rgba(126, 34, 206, 0.5),
+    0 0 40px rgba(126, 34, 206, 0.3);
+  background: conic-gradient(
+    #7e22ce 0% 3.33%,
+    #9333ea 3.33% 6.66%,
+    #a855f7 6.66% 10%,
+    #c084fc 10% 13.33%,
+    #581c87 13.33% 16.66%,
+    #6b21a8 16.66% 20%,
+    #7e22ce 20% 23.33%,
+    #9333ea 23.33% 26.66%,
+    #a855f7 26.66% 30%,
+    #c084fc 30% 33.33%,
+    #581c87 33.33% 36.66%,
+    #6b21a8 36.66% 40%,
+    #7e22ce 40% 43.33%,
+    #9333ea 43.33% 46.66%,
+    #a855f7 46.66% 50%,
+    #c084fc 50% 53.33%,
+    #581c87 53.33% 56.66%,
+    #6b21a8 56.66% 60%,
+    #7e22ce 60% 63.33%,
+    #9333ea 63.33% 66.66%,
+    #a855f7 66.66% 70%,
+    #c084fc 70% 73.33%,
+    #581c87 73.33% 76.66%,
+    #6b21a8 76.66% 80%,
+    #7e22ce 80% 83.33%,
+    #9333ea 83.33% 86.66%,
+    #a855f7 86.66% 90%,
+    #c084fc 90% 93.33%,
+    #581c87 93.33% 96.66%,
+    #6b21a8 96.66% 100%
+  );
+}
+
+.wheel-center {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(240, 196, 32, 0.8);
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  background-color: var(--accent-color);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  z-index: 5;
+}
+
+.btn {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn:hover::before {
+  left: 100%;
+  opacity: 1;
+}
+
+.btn:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn:disabled::before {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: radial-gradient(circle, var(--secondary-color), var(--dark-color));
+  max-width: 90%;
+  width: 600px;
+  padding: 3rem;
+  border-radius: 20px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(126, 34, 206, 0.5);
+  transform: scale(0.8);
+  transition: transform 0.5s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.modal h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-color);
+}
+
+.modal p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--light-color);
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  color: var(--accent-color);
+  transform: rotate(90deg);
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .wheel-container {
+    width: 320px;
+    height: 320px;
+  }
+  .btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+  .welcome-screen h1 {
+    font-size: 2rem;
+  }
+  .welcome-screen p {
+    font-size: 1rem;
+  }
+  .modal p {
+    font-size: 1.2rem;
+  }
+  .modal h2 {
+    font-size: 1.5rem;
+  }
+  .astronauta-chibi {
+    width: 80px;
+  }
+  .galaxy-1, .galaxy-2, .planet-1 {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wheel-container {
+    width: 220px;
+    height: 220px;
+  }
+  .container {
+    padding: 1rem;
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
