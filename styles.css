@@ -53,16 +53,16 @@ body {
   z-index: 1;
 }
 
-.galaxy-1 { top: 10%; left: 5%; width: 120px; animation: float 8s infinite alternate; }
-.galaxy-2 { top: 20%; right: 10%; width: 100px; animation: float 10s infinite alternate-reverse; }
-.planet-1 { bottom: 20%; left: 15%; width: 80px; animation: float 12s infinite alternate; }
+.galaxy-1 { top: 10%; left: 5%; width: 200px; animation: float 8s infinite alternate; }
+.galaxy-2 { top: 20%; right: 10%; width: 180px; animation: float 10s infinite alternate-reverse; }
+.planet-1 { bottom: 20%; left: 15%; width: 160px; animation: float 12s infinite alternate; }
 
 .astronauta-chibi {
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 200px;
   z-index: 2;
   animation: float 6s infinite alternate;
 }

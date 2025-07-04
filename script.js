@@ -32,7 +32,6 @@ const advices = [
   "¿Qué puedo ser o hacer hoy que cree más dinero ahora y para toda la eternidad?"
 ];
 
-// Elementos DOM
 const wheel = document.getElementById('wheel');
 const spinButton = document.getElementById('spin-button');
 const modal = document.getElementById('modal');
@@ -47,10 +46,8 @@ const spinSound = document.getElementById('spin-sound');
 const successSound = document.getElementById('success-sound');
 const ambientSound = document.getElementById('ambient-sound');
 
-// Variable para la rotación acumulada de la ruleta
 let currentRotation = 0;
 
-// Crear estrellas de fondo
 function createStars() {
   const stars = document.querySelector('.stars');
   const count = 200;
@@ -67,7 +64,6 @@ function createStars() {
   }
 }
 
-// Crear partículas
 function createParticles() {
   for (let i = 0; i < 50; i++) {
     const particle = document.createElement('div');
@@ -78,7 +74,6 @@ function createParticles() {
   }
 }
 
-// Animar partículas
 function animateParticles() {
   const particleElements = document.querySelectorAll('.particle');
   particleElements.forEach(particle => {
@@ -127,7 +122,6 @@ function updateWheelState() {
   }
 }
 
-// Girar la ruleta (ahora siempre gira correctamente)
 function spinWheel() {
   if (hasSpunToday()) return;
 
@@ -162,13 +156,11 @@ function spinWheel() {
     }
   });
 }
-// Mostrar el consejo en el modal
 function showAdvice(index) {
   adviceText.textContent = advices[index];
   modal.classList.add('active');
 }
 
-// Event listeners
 welcomeBtn.addEventListener('click', function() {
   gsap.to(welcomeScreen, {
     opacity: 0,
@@ -176,7 +168,6 @@ welcomeBtn.addEventListener('click', function() {
     onComplete: function() {
       welcomeScreen.style.display = 'none';
       updateWheelState();
-      // Sonido ambiente solo tras interacción del usuario
       ambientSound.volume = 0.2;
       ambientSound.play().catch(()=>{});
     }
@@ -199,6 +190,5 @@ document.addEventListener('DOMContentLoaded', function() {
   createParticles();
 });
 
-// Opcional: Pausar sonido ambiente cuando se cambia de pestaña
 window.addEventListener('blur', () => ambientSound.pause());
 window.addEventListener('focus', () => ambientSound.play());
