@@ -16,6 +16,7 @@
     <audio id="ambient-sound" src="./assets/sonido-ambiental.mp3" loop></audio>
     
     <div class="stars"></div>
+    <div class="aurora"></div>
     
     <div class="welcome-screen" id="welcome-screen">
       <div class="welcome-decor">
@@ -47,8 +48,19 @@
         <span class="close-modal" id="close-modal"><i class="fas fa-times"></i></span>
         <h2>Tu consejo del día</h2>
         <p id="advice-text"></p>
+        <button class="btn btn-share" id="share-btn"><i class="fas fa-share-alt"></i> Compartir</button>
+        <button class="btn btn-fav" id="fav-btn"><i class="fas fa-star"></i> Favorito</button>
         <button class="btn" id="modal-btn">Volver a empezar</button>
       </div>
+    </div>
+
+    <div class="history" id="history">
+      <h3>Historial de Consejos</h3>
+      <ul id="history-list"></ul>
+    </div>
+    <div class="favorites" id="favorites">
+      <h3>Favoritos</h3>
+      <ul id="favorites-list"></ul>
     </div>
     
     <footer class="footer">

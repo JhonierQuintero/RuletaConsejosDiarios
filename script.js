@@ -198,12 +198,11 @@ function animateParticles() {
 }
 
 function hasSpunToday() {
-  // Puedes activar la restricción diaria si lo deseas
   // const lastSpin = localStorage.getItem('lastSpin');
   // if (!lastSpin) return false;
   // const today = new Date().toDateString();
   // return lastSpin === today;
-  return false; // Para pruebas, permite girar siempre
+  return false; // Para las pruebas no lo olvide bestia
 }
 
 function updateWheelState() {
@@ -242,6 +241,7 @@ function spinWheel() {
       spinSound.pause();
       spinSound.currentTime = 0;
       gsap.set(wheel, { rotation: targetAngle });
+      // aqui es
       // localStorage.setItem('lastSpin', new Date().toDateString());
       const index = (dayOfMonth - 1) % advices.length;
       showAdvice(index);
@@ -253,7 +253,6 @@ function spinWheel() {
   });
 }
 
-// Mostrar consejo y pista en el modal
 function showAdvice(index) {
   adviceText.innerHTML = `
     <strong>${advices[index].pregunta}</strong>
@@ -265,7 +264,6 @@ function showAdvice(index) {
   modal.classList.add('active');
 }
 
-// Consejo aleatorio
 function showRandomAdvice() {
   const randomIndex = Math.floor(Math.random() * advices.length);
   showAdvice(randomIndex);
@@ -305,3 +303,112 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('blur', () => ambientSound.pause());
 window.addEventListener('focus', () => ambientSound.play());
+
+function createShootingStar() {
+  const star = document.createElement('div');
+  star.className = 'shooting-star';
+  document.body.appendChild(star);
+
+  const startX = Math.random() * window.innerWidth * 0.8;
+  star.style.left = `${startX}px`;
+  star.style.top = `${Math.random() * window.innerHeight * 0.3}px`;
+
+  setTimeout(() => {
+    star.remove();
+  }, 1200);
+}
+setInterval(createShootingStar, 4000);
+
+document.addEventListener('mousemove', function(e) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  particle.style.left = `${e.clientX}px`;
+  particle.style.top = `${e.clientY}px`;
+  particle.style.position = 'fixed';
+  particle.style.width = `${Math.random() * 8 + 4}px`;
+  particle.style.height = particle.style.width;
+  particle.style.background = 'rgba(240,196,32,0.7)';
+  particle.style.pointerEvents = 'none';
+  particle.style.borderRadius = '50%';
+  particle.style.zIndex = 9999;
+  document.body.appendChild(particle);
+
+  setTimeout(() => {
+    particle.style.opacity = 0;
+    setTimeout(() => particle.remove(), 400);
+  }, 200);
+});
+
+document.getElementById('share-btn').onclick = function() {
+  const index = window.currentAdviceIndex ?? 0;
+  const text = `${advices[index].pregunta}\n\nPista: ${advices[index].pista}`;
+  if (navigator.share) {
+    navigator.share({ text });
+  } else {
+    navigator.clipboard.writeText(text);
+    alert('¡Consejo copiado al portapapeles!');
+  }
+};
+
+document.getElementById('fav-btn').onclick = function() {
+  const index = window.currentAdviceIndex ?? 0;
+  let favs = JSON.parse(localStorage.getItem('adviceFavs') || '[]');
+  const consejo = {
+    pregunta: advices[index].pregunta,
+    pista: advices[index].pista
+  };
+  if (!favs.find(f => f.pregunta === consejo.pregunta)) {
+    favs.unshift(consejo);
+    favs = favs.slice(0, 20);
+    localStorage.setItem('adviceFavs', JSON.stringify(favs));
+    alert('¡Consejo guardado en favoritos!');
+    updateFavorites();
+  } else {
+    alert('Este consejo ya está en tus favoritos.');
+  }
+};
+
+function updateHistory() {
+  const historyList = document.getElementById('history-list');
+  if (!historyList) return;
+  const history = JSON.parse(localStorage.getItem('adviceHistory') || '[]');
+  historyList.innerHTML = history.map(item =>
+    `<li><strong>${item.pregunta}</strong><br><span style="color:#f0c420">${item.pista}</span><br><small>${item.fecha}</small></li>`
+  ).join('');
+}
+function updateFavorites() {
+  const favList = document.getElementById('favorites-list');
+  if (!favList) return;
+  const favs = JSON.parse(localStorage.getItem('adviceFavs') || '[]');
+  favList.innerHTML = favs.map(item =>
+    `<li><strong>${item.pregunta}</strong><br><span style="color:#f0c420">${item.pista}</span></li>`
+  ).join('');
+}
+document.addEventListener('DOMContentLoaded', function() {
+  updateHistory();
+  updateFavorites();
+});
+
+function showAdvice(index) {
+  window.currentAdviceIndex = index;
+  adviceText.innerHTML = `
+    <strong>${advices[index].pregunta}</strong>
+    <br>
+    <span style="font-size:1.1rem; color:#f0c420; font-style:normal; display:block; margin-top:1rem;">
+      ${advices[index].pista}
+    </span>
+  `;
+  modal.classList.add('active');
+  let history = JSON.parse(localStorage.getItem('adviceHistory') || '[]');
+  const consejo = {
+    pregunta: advices[index].pregunta,
+    pista: advices[index].pista,
+    fecha: new Date().toLocaleDateString()
+  };
+  if (!history.find(h => h.pregunta === consejo.pregunta)) {
+    history.unshift(consejo);
+    history = history.slice(0, 7);
+    localStorage.setItem('adviceHistory', JSON.stringify(history));
+    updateHistory();
+  }
+}
