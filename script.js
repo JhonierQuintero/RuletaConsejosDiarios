@@ -1,35 +1,124 @@
-// Array con los consejos
 const advices = [
-  "¿Qué energía, espacio, conciencia y elección puedo ser para recibir más dinero de lo que jamás imaginé, con total facilidad?",
-  "¿Qué tomaría para que el dinero me busque a mí como yo busco el café en las mañanas?",
-  "Si no tuviera ningún punto de vista sobre el dinero, ¿cuánto podría recibir hoy?",
-  "¿Y si el dinero fuera mi amante, cómo le estaría tratando?",
-  "¿Qué está creando escasez en mi vida que podría soltar ahora mismo?",
-  "¿Qué es el dinero para mí... y de quién aprendí eso?",
-  "¿Qué juicios estoy usando para limitar el dinero que puedo elegir?",
-  "¿Qué me impide reconocer que ya soy una energía de riqueza?",
-  "¿Cuánto más dinero podría tener si me atreviera a disfrutar sin culpa?",
-  "¿Qué posibilidades infinitas con el dinero están disponibles hoy que aún no he reconocido?",
-  "¿Qué debo dejar de controlar para que el dinero fluya con más gozo?",
-  "¿Estoy dispuesta a recibir dinero de formas inesperadas y sin esfuerzo?",
-  "¿Qué estoy evitando o defendiendo que me impide ser millonaria?",
-  "¿Qué más es posible con el dinero que nunca nadie me enseñó?",
-  "¿Qué pasaría si dejara de rechazar ser rica?",
-  "¿Y si el dinero no fuera un problema… qué elegiría hoy?",
-  "¿Qué estoy copiando de mi familia sobre el dinero que ya no me sirve?",
-  "¿Qué tomaría para que el dinero se muestre hoy con facilidad, alegría y gloria?",
-  "¿Qué nivel de gratitud y gozo puedo ser hoy para duplicar mis ingresos?",
-  "¿Cuánto dinero estoy dispuesto(a) a tener sin perder mi esencia?",
-  "¿Qué conciencia del dinero estoy listo(a) para recibir hoy?",
-  "¿Qué energía puedo ser para atraer clientes que me paguen con gozo?",
-  "¿Qué más puedo vender, crear o elegir que sea una contribución financiera para mí y para el mundo?",
-  "¿Qué estoy haciendo más difícil de lo que realmente es con el dinero?",
-  "¿Qué parte de mi magia estoy ignorando que crearía más dinero de inmediato?",
-  "¿Qué me impide ser el imán que realmente soy para el dinero?",
-  "¿Qué tomaría para elegir más dinero sin tener que justificarlo?",
-  "¿Y si el dinero no fuera serio ni pesado, cómo sería?",
-  "¿Qué riqueza energética está disponible para mí ahora mismo?",
-  "¿Qué puedo ser o hacer hoy que cree más dinero ahora y para toda la eternidad?"
+  {
+    pregunta: "¿Qué energía, espacio, conciencia y elección puedo ser para recibir más dinero de lo que jamás imaginé, con total facilidad?",
+    pista: "Permítete imaginar nuevas formas de recibir abundancia, incluso si parecen poco convencionales."
+  },
+  {
+    pregunta: "¿Qué tomaría para que el dinero me busque a mí como yo busco el café en las mañanas?",
+    pista: "El dinero puede llegar cuando te relajas y disfrutas el proceso, no solo cuando te esfuerzas."
+  },
+  {
+    pregunta: "Si no tuviera ningún punto de vista sobre el dinero, ¿cuánto podría recibir hoy?",
+    pista: "Observa tus creencias sobre el dinero y pregúntate si realmente son tuyas."
+  },
+  {
+    pregunta: "¿Y si el dinero fuera mi amante, cómo le estaría tratando?",
+    pista: "Trata al dinero con aprecio y gratitud, como tratarías a alguien especial."
+  },
+  {
+    pregunta: "¿Qué está creando escasez en mi vida que podría soltar ahora mismo?",
+    pista: "Identifica pensamientos o hábitos que te limitan y elige soltarlos, aunque sea por hoy."
+  },
+  {
+    pregunta: "¿Qué es el dinero para mí... y de quién aprendí eso?",
+    pista: "Reflexiona sobre el origen de tus creencias y si te siguen sirviendo."
+  },
+  {
+    pregunta: "¿Qué juicios estoy usando para limitar el dinero que puedo elegir?",
+    pista: "Cada juicio es una barrera invisible. ¿Puedes soltar uno hoy?"
+  },
+  {
+    pregunta: "¿Qué me impide reconocer que ya soy una energía de riqueza?",
+    pista: "La riqueza empieza por reconocer tu propio valor."
+  },
+  {
+    pregunta: "¿Cuánto más dinero podría tener si me atreviera a disfrutar sin culpa?",
+    pista: "La culpa limita el gozo y la abundancia. Permítete disfrutar."
+  },
+  {
+    pregunta: "¿Qué posibilidades infinitas con el dinero están disponibles hoy que aún no he reconocido?",
+    pista: "Pregunta abierta, permite que el universo te sorprenda."
+  },
+  {
+    pregunta: "¿Qué debo dejar de controlar para que el dinero fluya con más gozo?",
+    pista: "A veces, soltar el control permite que las cosas fluyan mejor."
+  },
+  {
+    pregunta: "¿Estoy dispuesta a recibir dinero de formas inesperadas y sin esfuerzo?",
+    pista: "El dinero puede llegar de maneras que nunca imaginaste. Mantente abierta."
+  },
+  {
+    pregunta: "¿Qué estoy evitando o defendiendo que me impide ser millonaria?",
+    pista: "A veces, lo que evitas es justo lo que necesitas mirar para avanzar."
+  },
+  {
+    pregunta: "¿Qué más es posible con el dinero que nunca nadie me enseñó?",
+    pista: "Permítete descubrir nuevas posibilidades más allá de lo aprendido."
+  },
+  {
+    pregunta: "¿Qué pasaría si dejara de rechazar ser rica?",
+    pista: "Aceptar tu potencial de riqueza es el primer paso para manifestarla."
+  },
+  {
+    pregunta: "¿Y si el dinero no fuera un problema… qué elegiría hoy?",
+    pista: "Imagina tus elecciones sin la limitación del dinero. ¿Qué cambiaría?"
+  },
+  {
+    pregunta: "¿Qué estoy copiando de mi familia sobre el dinero que ya no me sirve?",
+    pista: "Reconoce y suelta patrones familiares que no te benefician."
+  },
+  {
+    pregunta: "¿Qué tomaría para que el dinero se muestre hoy con facilidad, alegría y gloria?",
+    pista: "La facilidad y la alegría atraen más de lo mismo. Elige vibrar alto."
+  },
+  {
+    pregunta: "¿Qué nivel de gratitud y gozo puedo ser hoy para duplicar mis ingresos?",
+    pista: "La gratitud es un imán para la abundancia. Practícala hoy."
+  },
+  {
+    pregunta: "¿Cuánto dinero estoy dispuesto(a) a tener sin perder mi esencia?",
+    pista: "El dinero no cambia quién eres, solo amplifica tus posibilidades."
+  },
+  {
+    pregunta: "¿Qué conciencia del dinero estoy listo(a) para recibir hoy?",
+    pista: "Abre tu mente a nuevas formas de ver y recibir el dinero."
+  },
+  {
+    pregunta: "¿Qué energía puedo ser para atraer clientes que me paguen con gozo?",
+    pista: "Sé tú mismo y disfruta lo que haces, eso atrae a las personas correctas."
+  },
+  {
+    pregunta: "¿Qué más puedo vender, crear o elegir que sea una contribución financiera para mí y para el mundo?",
+    pista: "Tus talentos pueden ser una fuente de abundancia para ti y para otros."
+  },
+  {
+    pregunta: "¿Qué estoy haciendo más difícil de lo que realmente es con el dinero?",
+    pista: "A veces, simplificar tu enfoque puede abrir nuevas puertas."
+  },
+  {
+    pregunta: "¿Qué parte de mi magia estoy ignorando que crearía más dinero de inmediato?",
+    pista: "Reconoce tus dones únicos y ponlos al servicio de tu prosperidad."
+  },
+  {
+    pregunta: "¿Qué me impide ser el imán que realmente soy para el dinero?",
+    pista: "Confía en tu capacidad de atraer lo que deseas."
+  },
+  {
+    pregunta: "¿Qué tomaría para elegir más dinero sin tener que justificarlo?",
+    pista: "No necesitas justificar tu deseo de abundancia. Elígelo con libertad."
+  },
+  {
+    pregunta: "¿Y si el dinero no fuera serio ni pesado, cómo sería?",
+    pista: "Juega con la energía del dinero y hazlo más ligero en tu vida."
+  },
+  {
+    pregunta: "¿Qué riqueza energética está disponible para mí ahora mismo?",
+    pista: "La riqueza no siempre es material. Reconoce la abundancia en todas sus formas."
+  },
+  {
+    pregunta: "¿Qué puedo ser o hacer hoy que cree más dinero ahora y para toda la eternidad?",
+    pista: "Cada pequeña acción cuenta. Da un paso hoy hacia tu prosperidad."
+  }
 ];
 
 const wheel = document.getElementById('wheel');
@@ -45,6 +134,16 @@ const particles = document.getElementById('particles');
 const spinSound = document.getElementById('spin-sound');
 const successSound = document.getElementById('success-sound');
 const ambientSound = document.getElementById('ambient-sound');
+
+// Agrega el botón de consejo aleatorio si no existe
+let randomBtn = document.getElementById('random-btn');
+if (!randomBtn) {
+  randomBtn = document.createElement('button');
+  randomBtn.className = 'btn btn-random';
+  randomBtn.id = 'random-btn';
+  randomBtn.innerHTML = '<i class="fas fa-random"></i> Consejo Aleatorio';
+  spinButton.parentNode.insertBefore(randomBtn, spinButton.nextSibling);
+}
 
 let currentRotation = 0;
 
@@ -98,9 +197,8 @@ function animateParticles() {
   });
 }
 
-// Comprobar si el usuario ya ha girado hoy
 function hasSpunToday() {
-  // Descomenta esto para activar la restricción:
+  // Puedes activar la restricción diaria si lo deseas
   // const lastSpin = localStorage.getItem('lastSpin');
   // if (!lastSpin) return false;
   // const today = new Date().toDateString();
@@ -108,7 +206,6 @@ function hasSpunToday() {
   return false; // Para pruebas, permite girar siempre
 }
 
-// Actualizar el estado de la ruleta
 function updateWheelState() {
   if (hasSpunToday()) {
     spinButton.disabled = true;
@@ -126,8 +223,8 @@ function spinWheel() {
   if (hasSpunToday()) return;
 
   const dayOfMonth = new Date().getDate();
-  const adjustedDay = (dayOfMonth - 1) % 30 + 1;
-  const segmentAngle = 360 / 30;
+  const adjustedDay = (dayOfMonth - 1) % advices.length + 1;
+  const segmentAngle = 360 / advices.length;
   const targetAngle = 360 - (adjustedDay - 1) * segmentAngle;
 
   gsap.set(wheel, { rotation: 0 });
@@ -145,7 +242,6 @@ function spinWheel() {
       spinSound.pause();
       spinSound.currentTime = 0;
       gsap.set(wheel, { rotation: targetAngle });
-      // Descomenta para activar la restricción
       // localStorage.setItem('lastSpin', new Date().toDateString());
       const index = (dayOfMonth - 1) % advices.length;
       showAdvice(index);
@@ -156,9 +252,26 @@ function spinWheel() {
     }
   });
 }
+
+// Mostrar consejo y pista en el modal
 function showAdvice(index) {
-  adviceText.textContent = advices[index];
+  adviceText.innerHTML = `
+    <strong>${advices[index].pregunta}</strong>
+    <br>
+    <span style="font-size:1.1rem; color:#f0c420; font-style:normal; display:block; margin-top:1rem;">
+      ${advices[index].pista}
+    </span>
+  `;
   modal.classList.add('active');
+}
+
+// Consejo aleatorio
+function showRandomAdvice() {
+  const randomIndex = Math.floor(Math.random() * advices.length);
+  showAdvice(randomIndex);
+  successSound.currentTime = 0;
+  successSound.play();
+  animateParticles();
 }
 
 welcomeBtn.addEventListener('click', function() {
@@ -175,6 +288,7 @@ welcomeBtn.addEventListener('click', function() {
 });
 
 spinButton.addEventListener('click', spinWheel);
+randomBtn.addEventListener('click', showRandomAdvice);
 
 closeModal.addEventListener('click', function() {
   modal.classList.remove('active');
@@ -184,7 +298,6 @@ modalBtn.addEventListener('click', function() {
   modal.classList.remove('active');
 });
 
-// Inicialización
 document.addEventListener('DOMContentLoaded', function() {
   createStars();
   createParticles();
