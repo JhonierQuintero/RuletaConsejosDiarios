@@ -353,10 +353,10 @@ body {
     font-size: 1.5rem;
   }
   .astronauta-chibi {
-    width: 80px;
+    width: 100px;
   }
   .galaxy-1, .galaxy-2, .planet-1 {
-    width: 60px;
+    width: 100px;
   }
 }
 

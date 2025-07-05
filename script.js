@@ -135,7 +135,6 @@ const spinSound = document.getElementById('spin-sound');
 const successSound = document.getElementById('success-sound');
 const ambientSound = document.getElementById('ambient-sound');
 
-// Agrega el botón de consejo aleatorio si no existe
 let randomBtn = document.getElementById('random-btn');
 if (!randomBtn) {
   randomBtn = document.createElement('button');
@@ -198,11 +197,11 @@ function animateParticles() {
 }
 
 function hasSpunToday() {
-  // const lastSpin = localStorage.getItem('lastSpin');
-  // if (!lastSpin) return false;
-  // const today = new Date().toDateString();
-  // return lastSpin === today;
-  return false; // Para las pruebas no lo olvide bestia
+  const lastSpin = localStorage.getItem('lastSpin');
+  if (!lastSpin) return false;
+  const today = new Date().toDateString();
+  return lastSpin === today;
+  // return false; // Para las pruebas no lo olvide bestia
 }
 
 function updateWheelState() {
@@ -242,7 +241,7 @@ function spinWheel() {
       spinSound.currentTime = 0;
       gsap.set(wheel, { rotation: targetAngle });
       // aqui es
-      // localStorage.setItem('lastSpin', new Date().toDateString());
+      localStorage.setItem('lastSpin', new Date().toDateString());
       const index = (dayOfMonth - 1) % advices.length;
       showAdvice(index);
       successSound.currentTime = 0;
